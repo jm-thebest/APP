@@ -10,11 +10,13 @@
     
     <style>
         :root {
+            /* TUS COLORES ORIGINALES */
             --seychelles-pink: #FFB7C5; 
             --soft-cream: #FCF9F9;
             --deep-gray: #1A1A1A;
             --light-pink: #FDF2F4;
             --border-gray: #E0E0E0;
+            --gold-star: #D4AF37;
         }
 
         body {
@@ -29,7 +31,7 @@
         /* --- NAVEGACIÓN --- */
         #mainNav {
             background-color: #ffffff;
-            border-bottom: 1px solid var(--border-gray);
+            border-bottom: 2px solid var(--seychelles-pink); 
             height: 90px;
             display: flex;
             align-items: center;
@@ -37,7 +39,6 @@
         }
 
         .navbar-brand { position: relative; padding: 0; }
-
         .navbar-brand img { 
             height: 130px; 
             width: auto; 
@@ -85,31 +86,11 @@
             min-width: 320px;
         }
 
-        .txt-rotate::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 8px;
-            width: 100%;
-            height: 6px;
-            background: rgba(255, 255, 255, 0.6);
-            transform: scaleX(0);
-            transform-origin: bottom left;
-            animation: underline-grow 3s infinite;
-        }
-
-        @keyframes underline-grow {
-            0% { transform: scaleX(0); }
-            30% { transform: scaleX(1); }
-            80% { transform: scaleX(1); opacity: 1; }
-            100% { transform: scaleX(1); opacity: 0; }
-        }
-
         .cursor { border-right: 2px solid #fff; animation: blink 0.7s infinite; }
         @keyframes blink { from, to { border-color: transparent; } 50% { border-color: #fff; } }
 
         /* --- SECCIONES --- */
-        .py-section { padding: 120px 0; }
+        .py-section { padding: 100px 0; }
         .section-title { 
             font-family: 'Playfair Display', serif; 
             font-size: 3rem; 
@@ -119,13 +100,23 @@
             font-style: italic; 
         }
 
-        /* Vinted Section */
         .vinted-card {
             background: white;
-            padding: 4.5rem 3rem;
+            padding: 4rem 3rem;
             border: 1px solid var(--light-pink);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.03);
-            border-radius: 2px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.03);
+            border-radius: 4px;
+        }
+
+        .stars { color: var(--gold-star); margin-bottom: 1rem; }
+        .review-text { font-style: italic; font-size: 1.1rem; }
+        
+        /* Indicadores del carrusel en tu Rosa Seychelles */
+        .carousel-indicators [data-bs-target] { 
+            background-color: var(--seychelles-pink); 
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
         }
 
         .btn-luxury {
@@ -137,7 +128,7 @@
             letter-spacing: 0.4rem;
             font-weight: 700;
             text-decoration: none;
-            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            transition: all 0.5s ease;
             display: inline-block;
         }
         .btn-luxury:hover { background: var(--deep-gray); color: white; transform: translateY(-3px); }
@@ -145,7 +136,6 @@
         .btn-white { border-color: white; color: white; margin-top: 40px; }
         .btn-white:hover { background: white; color: var(--seychelles-pink); }
 
-        /* Imágenes */
         .img-premium-wrap {
             background: #fff;
             aspect-ratio: 4/5;
@@ -154,7 +144,7 @@
             overflow: hidden;
             margin-bottom: 2.5rem;
         }
-        .img-premium { width: 100%; height: 100%; object-fit: cover; transition: 1.2s cubic-bezier(0.19, 1, 0.22, 1); }
+        .img-premium { width: 100%; height: 100%; object-fit: cover; transition: 1.2s ease; }
         .img-premium-wrap:hover .img-premium { transform: scale(1.1); }
 
         .product-label {
@@ -187,11 +177,8 @@
 
     <section class="hero">
         <div class="container">
-            <p style="letter-spacing: 0.7rem; text-transform: uppercase; font-size: 0.85rem; margin-bottom: 2rem; font-weight: 400; opacity: 0.9;">The Art of Minimalist Living</p>
-            <h1>
-                Seychelles <br>
-                <span class="txt-rotate" id="typewriter"></span><span class="cursor"></span>
-            </h1>
+            <p style="letter-spacing: 0.7rem; text-transform: uppercase; font-size: 0.85rem; margin-bottom: 2rem;">The Art of Minimalist Living</p>
+            <h1>Seychelles <br> <span class="txt-rotate" id="typewriter"></span><span class="cursor"></span></h1>
             <a href="#shop" class="btn-luxury btn-white">Discover the Edit</a>
         </div>
     </section>
@@ -199,11 +186,34 @@
     <section id="shop" class="py-section">
         <div class="container text-center">
             <h2 class="section-title">El Armario Circular</h2>
-            <div class="vinted-card mx-auto" style="max-width: 850px;">
-                <p class="mb-5" style="font-weight: 300; font-size: 1.25rem; color: #555; max-width: 700px; margin: 0 auto 3rem;">
-                    Creemos en la moda con propósito y en la belleza que trasciende estaciones. Nuestra presencia en Vinted es una extensión de nuestra filosofía: otorgar una segunda vida a piezas icónicas, manteniendo la exclusividad y el cuidado que define a <i>Seychelles</i>. Calidad impecable, curaduría experta y envío garantizado.
+            <div class="vinted-card mx-auto mb-5" style="max-width: 850px;">
+                <p class="mb-5" style="font-weight: 300; font-size: 1.25rem; color: #555;">
+                    Creemos en la moda con propósito. Nuestra presencia en Vinted es una extensión de nuestra filosofía: otorgar una segunda vida a piezas icónicas.
                 </p>
                 <a href="https://www.vinted.es/member/40700203" target="_blank" class="btn-luxury">Explorar Selección en Vinted</a>
+            </div>
+            
+            <div id="reviewCarousel" class="carousel slide mt-5" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="review-item mx-auto" style="max-width: 500px;">
+                            <div class="stars">★★★★★</div>
+                            <p class="review-text">"La prenda llegó impecable, mejor de lo que esperaba. El packaging es un detalle precioso."</p>
+                            <p class="review-user product-label">@carla_vntd</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="review-item mx-auto" style="max-width: 500px;">
+                            <div class="stars">★★★★★</div>
+                            <p class="review-text">"Envío rapidísimo y comunicación excelente. Se nota la curaduría en cada detalle."</p>
+                            <p class="review-user product-label">@elena_style</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-indicators" style="position: relative; margin-top: 2rem;">
+                    <button type="button" data-bs-target="#reviewCarousel" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#reviewCarousel" data-bs-slide-to="1"></button>
+                </div>
             </div>
         </div>
     </section>
@@ -219,10 +229,10 @@
                 <div class="col-md-7 ps-md-5">
                     <h2 class="section-title" style="text-align: left; margin-bottom: 2.5rem;">Elegancia Atemporal</h2>
                     <p style="line-height: 2.4; font-weight: 300; color: #333; font-size: 1.1rem; margin-bottom: 2rem;">
-                        En un mundo dominado por lo efímero, Seychelles nace como un refugio para lo eterno. Nuestra filosofía se aleja del ruido de las tendencias rápidas para centrarse en la pureza de las líneas, la nobleza de los tejidos y la sutil sofisticación de nuestra paleta <i>signature</i>. 
+                        En un mundo dominado por lo efímero, Seychelles nace como un refugio para lo eterno. Nuestra filosofía se centra en la pureza de las líneas y la nobleza de los tejidos.
                     </p>
                     <p style="line-height: 2.4; font-weight: 300; color: #333; font-size: 1.1rem;">
-                        Cada prenda que seleccionamos es un diálogo entre el minimalismo moderno y la feminidad clásica, diseñada para la mujer que no necesita gritar para ser notada. No vendemos ropa; ofrecemos una estética consciente.
+                        Cada prenda es un diálogo entre el minimalismo moderno y la feminidad clásica.
                     </p>
                 </div>
             </div>
@@ -235,37 +245,36 @@
             <div class="row">
                 <div class="col-6 col-md-3 text-center">
                     <div class="img-premium-wrap"><img src="ropa1.png" class="img-premium"></div>
-                    <h4 style="font-family: 'Playfair Display'; font-style: italic;">Seda Orgánica</h4>
+                    <h4 style="font-family: 'Playfair Display';">Seda Orgánica</h4>
                     <p class="product-label">Luxe Capsule</p>
                 </div>
                 <div class="col-6 col-md-3 text-center">
                     <div class="img-premium-wrap"><img src="ropa2.png" class="img-premium"></div>
-                    <h4 style="font-family: 'Playfair Display'; font-style: italic;">Lino Esencial</h4>
+                    <h4 style="font-family: 'Playfair Display';">Lino Esencial</h4>
                     <p class="product-label">Summer Atelier</p>
                 </div>
                 <div class="col-6 col-md-3 text-center">
                     <div class="img-premium-wrap"><img src="ropa3.png" class="img-premium"></div>
-                    <h4 style="font-family: 'Playfair Display'; font-style: italic;">Cashmere Soft</h4>
+                    <h4 style="font-family: 'Playfair Display';">Cashmere Soft</h4>
                     <p class="product-label">Autumn Signature</p>
                 </div>
                 <div class="col-6 col-md-3 text-center">
                     <div class="img-premium-wrap"><img src="ropa4.png" class="img-premium"></div>
-                    <h4 style="font-family: 'Playfair Display'; font-style: italic;">Edición S</h4>
+                    <h4 style="font-family: 'Playfair Display';">Edición S</h4>
                     <p class="product-label">Limited Release</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="newsletter" class="newsletter-section" style="background: var(--light-pink); padding: 120px 0;">
+    <section id="newsletter" class="py-section" style="background: var(--light-pink);">
         <div class="container text-center">
             <h2 style="font-family: 'Playfair Display'; font-style: italic; font-weight: 700; margin-bottom: 1.5rem; font-size: 2.5rem;">Join the Club</h2>
             <p class="mb-5" style="font-weight: 300; letter-spacing: 0.1rem; color: #666; max-width: 600px; margin: 0 auto 3rem;">
-                Suscríbete para recibir nuestras notas de estilo mensuales, acceso anticipado a nuevas colecciones y contenido exclusivo de nuestra comunidad.
+                Acceso anticipado a nuevas colecciones y contenido exclusivo.
             </p>
-            
             <div class="mailjet-container mx-auto" style="max-width: 600px;">
-                <iframe data-w-type="embedded" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://1pjkw.mjt.lu/wgt/1pjkw/0jnw/form?c=6b66f4fa" width="100%" style="height: 180px;"></iframe>
+                <iframe src="https://1pjkw.mjt.lu/wgt/1pjkw/0jnw/form?c=6b66f4fa" width="100%" style="height: 180px; border:none;"></iframe>
             </div>
         </div>
     </section>
@@ -274,6 +283,7 @@
         <p style="font-size: 0.7rem; letter-spacing: 0.3rem; color: #999; text-transform: uppercase;">© 2026 Seychelles Shop • All Rights Reserved</p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="https://app.mailjet.com/pas-nc-embedded-v2.js"></script>
     <script>
         const words = ["Signature", "Clothes", "Love"];
@@ -299,6 +309,12 @@
             }
         }
         window.onload = typeWriter;
+
+        // Script para asegurar que el carrusel gire
+        const myCarousel = new bootstrap.Carousel(document.querySelector('#reviewCarousel'), {
+            interval: 4000,
+            ride: 'carousel'
+        });
     </script>
 </body>
 </html>
