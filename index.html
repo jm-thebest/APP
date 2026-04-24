@@ -14,6 +14,7 @@
             --soft-cream: #FCF9F9;
             --deep-gray: #1A1A1A;
             --light-pink: #FDF2F4;
+            --border-gray: #E0E0E0; /* Gris fino para la línea */
         }
 
         body {
@@ -24,13 +25,26 @@
             scroll-behavior: smooth;
         }
 
-        /* --- NAVEGACIÓN --- */
+        /* --- NAVEGACIÓN CON LÍNEA GRIS FINA --- */
         #mainNav {
-            background-color: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            padding: 1rem 0;
+            background-color: #ffffff; /* Fondo sólido para que la línea se vea clara */
+            border-bottom: 1px solid var(--border-gray); /* LA LÍNEA GRIS QUE PEDISTE */
+            height: 90px;
+            display: flex;
+            align-items: center;
             z-index: 1000;
+        }
+
+        .navbar-brand { position: relative; padding: 0; }
+
+        .navbar-brand img { 
+            height: 120px; 
+            width: auto; 
+            position: absolute;
+            top: -25px; 
+            left: 50%;
+            transform: translateX(-50%);
+            filter: drop-shadow(0 4px 15px rgba(0,0,0,0.08));
         }
 
         .nav-link {
@@ -38,48 +52,46 @@
             letter-spacing: 0.2rem;
             text-transform: uppercase;
             color: var(--deep-gray) !important;
-            font-weight: 600;
+            font-weight: 700;
             margin: 0 1.5rem;
         }
 
-        .navbar-brand img { height: 50px; width: auto; }
-
-        /* --- HERO & ANIMACIÓN DE TEXTO --- */
+        /* --- HERO --- */
         .hero {
-            height: 100vh;
+            height: 80vh; 
             background: var(--seychelles-pink);
             display: flex;
             align-items: center;
             text-align: center;
             color: #fff;
+            padding-top: 120px; 
+            position: relative;
         }
 
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(3.5rem, 9vw, 6.5rem);
+            font-size: clamp(3rem, 7vw, 5.5rem);
             font-weight: 900;
             line-height: 1.1;
-            letter-spacing: -0.02em;
         }
 
-        /* Contenedor del texto que cambia */
+        /* Animación de texto y subrayado */
         .txt-rotate {
             position: relative;
             display: inline-block;
             font-style: italic;
             font-weight: 400;
-            min-width: 300px; /* Evita que el título salte al borrar letras */
+            min-width: 280px;
         }
 
-        /* Efecto de Subrayado Animado */
         .txt-rotate::after {
             content: '';
             position: absolute;
             left: 0;
-            bottom: 10px;
+            bottom: 5px;
             width: 100%;
-            height: 8px;
-            background: rgba(255, 255, 255, 0.4);
+            height: 6px;
+            background: rgba(255, 255, 255, 0.5);
             transform: scaleX(0);
             transform-origin: bottom left;
             animation: underline-grow 3s infinite;
@@ -92,110 +104,102 @@
             100% { transform: scaleX(1); opacity: 0; }
         }
 
-        /* Cursor de la máquina de escribir */
-        .cursor {
-            border-right: 2px solid rgba(255,255,255,0.75);
-            animation: blink 0.7s infinite;
-            margin-left: 5px;
-        }
-
-        @keyframes blink {
-            from, to { border-color: transparent; }
-            50% { border-color: #fff; }
-        }
+        .cursor { border-right: 2px solid #fff; animation: blink 0.7s infinite; }
+        @keyframes blink { from, to { border-color: transparent; } 50% { border-color: #fff; } }
 
         /* --- SECCIONES --- */
-        .py-section { padding: 100px 0; }
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
-            text-align: center;
-            margin-bottom: 4rem;
-            font-weight: 700;
-            font-style: italic;
-        }
+        .py-section { padding: 90px 0; }
+        .section-title { font-family: 'Playfair Display', serif; font-size: 2.6rem; text-align: center; margin-bottom: 3.5rem; font-weight: 700; font-style: italic; }
 
-        .product-image-container {
-            background: #fff;
-            aspect-ratio: 4/5;
-            border: 15px solid #fff;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
-            margin-bottom: 2rem;
-            overflow: hidden;
+        .vinted-card {
+            background: white;
+            padding: 3.5rem;
+            border: 1px solid var(--light-pink);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.02);
+            border-radius: 2px;
         }
-
-        .img-premium {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s ease;
-        }
-
-        .product-image-container:hover .img-premium { transform: scale(1.08); }
 
         .btn-luxury {
-            padding: 1.2rem 3.5rem;
-            border: 2px solid #fff;
-            color: #fff;
-            text-decoration: none;
+            padding: 1.1rem 3.5rem;
+            border: 2px solid var(--deep-gray);
+            color: var(--deep-gray);
             text-transform: uppercase;
             font-size: 0.75rem;
-            letter-spacing: 0.4rem;
+            letter-spacing: 0.35rem;
             font-weight: 700;
-            transition: all 0.3s;
+            text-decoration: none;
+            transition: all 0.4s ease;
             display: inline-block;
-            margin-top: 2rem;
         }
+        .btn-luxury:hover { background: var(--deep-gray); color: white; }
 
-        .btn-luxury:hover { background: #fff; color: var(--seychelles-pink); }
+        .btn-white { border-color: white; color: white; margin-top: 30px; }
+        .btn-white:hover { background: white; color: var(--seychelles-pink); }
 
-        /* Newsletter */
-        .newsletter-section { background-color: var(--light-pink); padding: 100px 0; text-align: center; }
-        .newsletter-form { max-width: 500px; margin: 2rem auto 0; display: flex; border-bottom: 2px solid var(--seychelles-pink); }
-        .newsletter-input { border: none; background: transparent; padding: 1rem; width: 100%; outline: none; }
-        .newsletter-btn { background: transparent; border: none; text-transform: uppercase; letter-spacing: 0.2rem; font-size: 0.7rem; font-weight: 700; color: var(--seychelles-pink); cursor: pointer; }
+        .img-premium-wrap {
+            background: #fff;
+            aspect-ratio: 4/5;
+            border: 12px solid #fff;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+        .img-premium { width: 100%; height: 100%; object-fit: cover; transition: 0.8s; }
+        .img-premium-wrap:hover .img-premium { transform: scale(1.08); }
     </style>
 </head>
 <body>
 
     <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
-        <div class="container justify-content-center">
+        <div class="container justify-content-center position-relative">
             <ul class="navbar-nav d-none d-lg-flex align-items-center">
                 <li class="nav-item"><a class="nav-link" href="#about">Nosotros</a></li>
-                <li class="nav-item"><a class="nav-link" href="#collection">Colección</a></li>
-            </ul>
-            <a class="navbar-brand mx-lg-5" href="#">
-                <img src="logo.png" alt="Seychelles Shop">
-            </a>
-            <ul class="navbar-nav d-none d-lg-flex align-items-center">
                 <li class="nav-item"><a class="nav-link" href="#shop">Tienda</a></li>
-                <li class="nav-item"><a class="nav-link" href="#newsletter">Newsletter</a></li>
+            </ul>
+            
+            <a class="navbar-brand mx-lg-5" href="#">
+                <img src="logo.png" alt="Seychelles Logo">
+            </a>
+            
+            <ul class="navbar-nav d-none d-lg-flex align-items-center">
+                <li class="nav-item"><a class="nav-link" href="#collection">Colección</a></li>
+                <li class="nav-item"><a class="nav-link" href="#newsletter">Club</a></li>
             </ul>
         </div>
     </nav>
 
     <section class="hero">
         <div class="container">
-            <p style="letter-spacing: 0.6rem; text-transform: uppercase; font-size: 0.85rem; margin-bottom: 1rem;">Estética Minimalista</p>
+            <p style="letter-spacing: 0.6rem; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 1.5rem; font-weight: 400;">Estética Consciente</p>
             <h1>
                 Seychelles <br>
                 <span class="txt-rotate" id="typewriter"></span><span class="cursor"></span>
             </h1>
-            <a href="#collection" class="btn-luxury">Explorar Selección</a>
+            <a href="#shop" class="btn-luxury btn-white">Ver Colección</a>
+        </div>
+    </section>
+
+    <section id="shop" class="py-section">
+        <div class="container text-center">
+            <h2 class="section-title">El Armario Vinted</h2>
+            <div class="vinted-card mx-auto" style="max-width: 800px;">
+                <p class="mb-4" style="font-weight: 300; font-size: 1.1rem; color: #555;">Nuestras piezas más exclusivas ahora disponibles para un nuevo ciclo de vida.</p>
+                <a href="https://www.vinted.es/member/40700203" target="_blank" class="btn-luxury">Explorar en Vinted</a>
+            </div>
         </div>
     </section>
 
     <section id="about" class="py-section bg-white">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-6 mb-4">
-                    <img src="ropa.png" alt="Clothes" class="img-fluid shadow-sm">
+                <div class="col-md-5">
+                    <div class="img-premium-wrap">
+                        <img src="ropa.png" alt="Clothes" class="img-premium">
+                    </div>
                 </div>
-                <div class="col-md-6 ps-md-5">
-                    <h2 class="section-title" style="text-align: left;">Nuestra Filosofía</h2>
-                    <p style="font-weight: 300; line-height: 2; color: #666;">
-                        Elegancia atemporal y curaduría consciente. En Seychelles, cada pieza es seleccionada para durar y contar una historia de lujo minimalista.
-                    </p>
+                <div class="col-md-7 ps-md-5">
+                    <h2 class="section-title" style="text-align: left; margin-bottom: 2rem;">Nuestra Filosofía</h2>
+                    <p style="line-height: 2.2; font-weight: 300; color: #444;">Curamos cada prenda pensando en la mujer que busca la sofisticación en lo sencillo.</p>
                 </div>
             </div>
         </div>
@@ -203,70 +207,62 @@
 
     <section id="collection" class="py-section">
         <div class="container">
-            <h2 class="section-title">Objetos de Deseo</h2>
+            <h2 class="section-title">Nuestra Selección</h2>
             <div class="row">
-                <div class="col-md-3 col-sm-6 text-center mb-5">
-                    <div class="product-image-container"><img src="ropa1.png" class="img-premium"></div>
-                    <h3 style="font-weight: 700; font-size: 1.2rem;">Seda Luxe</h3>
+                <div class="col-6 col-md-3 text-center">
+                    <div class="img-premium-wrap"><img src="ropa1.png" class="img-premium"></div>
+                    <p class="small font-weight-bold" style="letter-spacing: 0.1rem;">SEDA LUXE</p>
                 </div>
-                <div class="col-md-3 col-sm-6 text-center mb-5">
-                    <div class="product-image-container"><img src="ropa2.png" class="img-premium"></div>
-                    <h3 style="font-weight: 700; font-size: 1.2rem;">Essential</h3>
+                <div class="col-6 col-md-3 text-center">
+                    <div class="img-premium-wrap"><img src="ropa2.png" class="img-premium"></div>
+                    <p class="small font-weight-bold" style="letter-spacing: 0.1rem;">ESSENTIAL</p>
                 </div>
-                <div class="col-md-3 col-sm-6 text-center mb-5">
-                    <div class="product-image-container"><img src="ropa3.png" class="img-premium"></div>
-                    <h3 style="font-weight: 700; font-size: 1.2rem;">Signature</h3>
+                <div class="col-6 col-md-3 text-center">
+                    <div class="img-premium-wrap"><img src="ropa3.png" class="img-premium"></div>
+                    <p class="small font-weight-bold" style="letter-spacing: 0.1rem;">SIGNATURE</p>
                 </div>
-                <div class="col-md-3 col-sm-6 text-center mb-5">
-                    <div class="product-image-container"><img src="ropa4.png" class="img-premium"></div>
-                    <h3 style="font-weight: 700; font-size: 1.2rem;">Limited</h3>
+                <div class="col-6 col-md-3 text-center">
+                    <div class="img-premium-wrap"><img src="ropa4.png" class="img-premium"></div>
+                    <p class="small font-weight-bold" style="letter-spacing: 0.1rem;">LIMITED</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="newsletter" class="newsletter-section">
-        <div class="container">
-            <h2 style="font-family: 'Playfair Display'; font-style: italic; font-weight: 700;">Únete al Club Seychelles</h2>
-            <form class="newsletter-form">
-                <input type="email" class="newsletter-input" placeholder="Tu correo electrónico">
-                <button type="submit" class="newsletter-btn">Suscribirme</button>
-            </form>
+    <section id="newsletter" class="newsletter-section" style="background: var(--light-pink); padding: 100px 0;">
+        <div class="container text-center">
+            <h2 style="font-family: 'Playfair Display'; font-style: italic; font-weight: 700; margin-bottom: 1rem;">Club Seychelles</h2>
+            <div style="max-width: 500px; margin: 0 auto; border-bottom: 2px solid var(--seychelles-pink); display: flex;">
+                <input type="email" placeholder="Email" style="border:none; background:transparent; width:100%; padding: 12px; outline:none;">
+                <button style="border:none; background:transparent; color: var(--seychelles-pink); font-weight: 700; text-transform: uppercase; font-size: 0.75rem;">Unirme</button>
+            </div>
         </div>
     </section>
 
     <script>
         const words = ["Signature", "Clothes", "Love"];
-        let i = 0;
-        let counter = 0;
-        const speed = 150; // Velocidad de escritura
+        let i = 0, counter = 0;
         const target = document.getElementById("typewriter");
 
         function typeWriter() {
             if (counter < words[i].length) {
                 target.innerHTML += words[i].charAt(counter);
                 counter++;
-                setTimeout(typeWriter, speed);
-            } else {
-                // Espera 2 segundos cuando termina de escribir la palabra
-                setTimeout(erase, 2000);
-            }
+                setTimeout(typeWriter, 140);
+            } else { setTimeout(erase, 2000); }
         }
 
         function erase() {
             if (counter > 0) {
                 target.innerHTML = words[i].substring(0, counter - 1);
                 counter--;
-                setTimeout(erase, speed / 2);
+                setTimeout(erase, 60);
             } else {
                 i = (i + 1) % words.length;
-                setTimeout(typeWriter, speed);
+                setTimeout(typeWriter, 500);
             }
         }
-
-        // Iniciar la animación al cargar
         window.onload = typeWriter;
     </script>
-
 </body>
 </html>
