@@ -3,211 +3,258 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>Seychelles Shop - Minimalist Style</title>
-    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+    <title>Seychelles Shop | Luxury Essentials</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     
     <style>
         :root {
-            --rosa-seychelles: #FFB7C5;
-            --rosa-claro: #FFF5F7;
-            --gris-oscuro: #4A4A4A;
+            --seychelles-pink: #FFB7C5; /* EL ROSA ORIGINAL */
+            --soft-cream: #FCF9F9;
+            --deep-gray: #1A1A1A;
         }
 
         body {
-            font-family: 'Nunito', sans-serif;
-            color: var(--gris-oscuro);
-            background-color: var(--rosa-claro);
+            font-family: 'Montserrat', sans-serif;
+            color: var(--deep-gray);
+            background-color: var(--soft-cream);
+            letter-spacing: 0.05rem;
         }
 
-        /* Navegación */
+        /* --- NAVEGACIÓN --- */
         #mainNav {
-            background-color: #fff;
-            border-bottom: 1px solid #eee;
-            padding: 1rem 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding: 1.2rem 0;
         }
 
         #mainNav .navbar-brand {
-            color: var(--rosa-seychelles);
-            font-weight: 800;
-            letter-spacing: 0.1rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            letter-spacing: 0.4rem;
+            color: var(--deep-gray);
+            text-transform: uppercase;
         }
 
-        /* Hero / Masthead (Fondo Rosa Sólido) */
-        .masthead {
+        /* --- HERO SECTION --- */
+        .hero {
             height: 100vh;
-            min-height: 500px;
-            background: var(--rosa-seychelles);
+            background: var(--seychelles-pink);
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        .masthead h1 {
-            font-family: 'Varela Round', sans-serif;
-            font-size: 4rem;
+        /* Elemento decorativo Premium */
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3.5rem, 9vw, 6.5rem);
             color: #fff;
+            font-weight: 400;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .hero p {
+            color: #fff;
+            font-size: 1rem;
             text-transform: uppercase;
             letter-spacing: 0.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 3.5rem;
+            font-weight: 300;
         }
 
-        .masthead h2 {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto 2rem;
-        }
-
-        /* Botones */
-        .btn-custom {
-            padding: 1.25rem 2rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            border-radius: 50px;
-            transition: all 0.3s;
+        /* --- BOTÓN DE LUJO --- */
+        .btn-luxury {
+            padding: 1.2rem 3.5rem;
+            border: 1.5px solid #fff;
+            color: #fff;
             text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.4rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: transparent;
             display: inline-block;
         }
 
-        .btn-primary-custom {
-            background-color: #fff;
-            color: var(--rosa-seychelles);
-            border: 2px solid #fff;
-        }
-
-        .btn-primary-custom:hover {
-            background-color: transparent;
-            color: #fff;
-        }
-
-        /* Secciones */
-        .section-padding {
-            padding: 5rem 0;
-        }
-
-        .section-title {
-            font-family: 'Varela Round', sans-serif;
-            color: var(--rosa-seychelles);
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-
-        /* Tarjetas de Producto (Placeholder) */
-        .product-card {
+        .btn-luxury:hover {
             background: #fff;
-            border: none;
-            border-radius: 15px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
+            color: var(--seychelles-pink);
+            transform: translateY(-3px);
         }
 
-        .product-card:hover {
-            transform: translateY(-5px);
+        /* --- SECCIÓN COLECCIÓN --- */
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 5rem;
+            font-style: italic;
+        }
+
+        .product-item {
+            margin-bottom: 5rem;
+        }
+
+        .product-image-wrapper {
+            background-color: #fff;
+            aspect-ratio: 4/5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            overflow: hidden;
+            border: 20px solid #fff; 
+            box-shadow: 0 25px 50px rgba(0,0,0,0.04);
+            transition: transform 0.6s ease;
+        }
+
+        .product-item:hover .product-image-wrapper {
+            transform: scale(1.02);
         }
 
         .product-placeholder {
             width: 100%;
-            height: 200px;
-            background-color: var(--rosa-claro);
-            border-radius: 10px;
-            margin-bottom: 1rem;
+            height: 100%;
+            background: #FDF2F4; /* Un rosa casi blanco para los huecos de foto */
         }
 
-        /* Footer */
+        .product-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.4rem;
+            font-weight: 400;
+        }
+
+        .product-info span {
+            color: var(--seychelles-pink);
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 0.1rem;
+        }
+
+        /* --- FOOTER --- */
         footer {
-            background-color: #fff;
-            padding: 3rem 0;
-            border-top: 1px solid #eee;
-            text-align: center;
+            padding: 6rem 0;
+            background: #fff;
+            border-top: 1px solid #f0f0f0;
         }
 
-        .social-icons a {
-            color: var(--rosa-seychelles);
-            font-size: 1.5rem;
-            margin: 0 1rem;
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            letter-spacing: 0.5rem;
+            margin-bottom: 2.5rem;
+            text-transform: uppercase;
+        }
+
+        .footer-links a {
+            color: #888;
             text-decoration: none;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
+            margin: 0 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--seychelles-pink);
         }
     </style>
 </head>
-<body id="page-top">
+<body>
 
     <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
-        <div class="container px-4">
-            <a class="navbar-brand" href="#page-top">SEYCHELLES SHOP</a>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#shop">Tienda</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">Nosotros</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
-                </ul>
+        <div class="container">
+            <a class="navbar-brand" href="#">Seychelles</a>
+            <div class="ms-auto d-none d-md-block">
+                <a href="#" class="text-dark text-decoration-none small" style="letter-spacing: 0.2rem;">COLECCIÓN</a>
+                <a href="#" class="text-dark text-decoration-none small ms-5" style="letter-spacing: 0.2rem;">CARRITO (0)</a>
             </div>
         </div>
     </nav>
 
-    <header class="masthead">
+    <section class="hero text-center">
         <div class="container">
-            <h1>Seychelles</h1>
-            <h2>Tu destino para accesorios minimalistas y elegantes. Descubre nuestra nueva colección en rosa.</h2>
-            <a href="#shop" class="btn-custom btn-primary-custom">Comprar Ahora</a>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <p>New Arrivals • 2026</p>
+                    <h1>Seychelles <br><i>Signature</i></h1>
+                    <a href="#collection" class="btn-luxury">Ver Colección</a>
+                </div>
+            </div>
         </div>
-    </header>
+    </section>
 
-    <section id="shop" class="section-padding">
+    <section id="collection" class="py-5" style="margin-top: 80px;">
         <div class="container">
-            <h2 class="section-title">Colección Destacada</h2>
+            <h2 class="section-title">Nuestros Objetos de Deseo</h2>
             <div class="row">
                 <div class="col-md-4">
-                    <div class="product-card text-center">
-                        <div class="product-placeholder"></div>
-                        <h4>Producto 01</h4>
-                        <p>$25.00</p>
+                    <div class="product-item">
+                        <div class="product-image-wrapper">
+                            <div class="product-placeholder"></div>
+                        </div>
+                        <div class="product-info text-center">
+                            <h3>Bolsos Premium</h3>
+                            <span>$290.00</span>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="product-card text-center">
-                        <div class="product-placeholder"></div>
-                        <h4>Producto 02</h4>
-                        <p>$35.00</p>
+                    <div class="product-item">
+                        <div class="product-image-wrapper">
+                            <div class="product-placeholder"></div>
+                        </div>
+                        <div class="product-info text-center">
+                            <h3>Esencia de Rosas</h3>
+                            <span>$145.00</span>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="product-card text-center">
-                        <div class="product-placeholder"></div>
-                        <h4>Producto 03</h4>
-                        <p>$45.00</p>
+                    <div class="product-item">
+                        <div class="product-image-wrapper">
+                            <div class="product-placeholder"></div>
+                        </div>
+                        <div class="product-info text-center">
+                            <h3>Accesorios Seda</h3>
+                            <span>$85.00</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="about" class="section-padding" style="background-color: #fff;">
-        <div class="container text-center">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <h2 class="section-title">Minimalismo Puro</h2>
-                    <p>En Seychelles Shop creemos que la elegancia reside en la sencillez. Nuestra misión es ofrecer piezas únicas que complementen tu estilo sin sobrecargarlo.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
+    <footer class="text-center">
         <div class="container">
-            <div class="social-icons mb-4">
-                <a href="#">IG</a>
-                <a href="#">FB</a>
-                <a href="#">TW</a>
+            <div class="footer-logo">Seychelles</div>
+            <div class="footer-links mb-5">
+                <a href="#">Shop</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+                <a href="#">Instagram</a>
             </div>
-            <p class="text-muted small">Copyright &copy; Seychelles Shop 2024</p>
+            <p class="small text-muted" style="letter-spacing: 0.1rem;">EST. 2026 • SEYCHELLESSHOP.COM</p>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
