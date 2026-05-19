@@ -10,7 +10,6 @@
     
     <style>
         :root {
-            /* TUS COLORES ORIGINALES */
             --seychelles-pink: #FFB7C5; 
             --soft-cream: #FCF9F9;
             --deep-gray: #1A1A1A;
@@ -136,7 +135,7 @@
         .stars { color: var(--gold-star); margin-bottom: 1rem; }
         .review-text { font-style: italic; font-size: 1.1rem; }
         
-        /* Indicadores del carrusel en tu Rosa Seychelles */
+        /* Indicadores del carrusel */
         .carousel-indicators [data-bs-target] { 
             background-color: var(--seychelles-pink); 
             width: 10px;
@@ -229,4 +228,59 @@
         <div class="container text-center">
             <h2 class="section-title">El Armario Circular</h2>
             <div class="vinted-card mx-auto mb-5" style="max-width: 850px;">
-                <p class="mb-5" style="font-weight: 300; font-size: 1.2
+                <!-- SE CORRIGIÓ ESTA LÍNEA DE ABAJO -->
+                <p class="mb-5" style="font-weight: 300; font-size: 1.2rem;">
+                    Descubre nuestra colección exclusiva de prendas seleccionadas con una historia única para contar. 
+                    Calidad premium, estilo atemporal y moda sostenible.
+                </p>
+                <a href="https://www.vinted.es" target="_blank" class="btn-luxury">Visitar mi Vinted</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- JS de Bootstrap y Script para el efecto Mecanografiado (Typewriter) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Efecto Typewriter para el Hero
+        const words = ["Shop", "Essentials", "Curated Style"];
+        let i = 0;
+        let timer;
+
+        function typingEffect() {
+            let word = words[i].split("");
+            var loopTyping = function() {
+                if (word.length > 0) {
+                    document.getElementById('typewriter').innerHTML += word.shift();
+                } else {
+                    setTimeout(deletingEffect, 2000);
+                    return false;
+                }
+                timer = setTimeout(loopTyping, 150);
+            };
+            loopTyping();
+        }
+
+        function deletingEffect() {
+            let word = words[i].split("");
+            var loopDeleting = function() {
+                if (word.length > 0) {
+                    word.pop();
+                    document.getElementById('typewriter').innerHTML = word.join("");
+                } else {
+                    if (words.length > (i + 1)) {
+                        i++;
+                    } else {
+                        i = 0;
+                    }
+                    setTimeout(typingEffect, 500);
+                    return false;
+                }
+                timer = setTimeout(loopDeleting, 100);
+            };
+            loopDeleting();
+        }
+
+        typingEffect();
+    </script>
+</body>
+</html>
