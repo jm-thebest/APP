@@ -37,13 +37,6 @@
             z-index: 1000;
         }
 
-        .container-nav-wrap {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-        }
-
         .navbar-brand { position: relative; padding: 0; margin: 0; }
         .navbar-brand img { 
             height: 130px; 
@@ -64,7 +57,6 @@
             margin: 0 1.5rem;
         }
 
-        /* Botón de acceso rápido al panel de administración */
         .btn-nav-admin {
             font-size: 0.7rem !important;
             letter-spacing: 0.2rem !important;
@@ -135,7 +127,6 @@
         .stars { color: var(--gold-star); margin-bottom: 1rem; }
         .review-text { font-style: italic; font-size: 1.1rem; }
         
-        /* Indicadores del carrusel */
         .carousel-indicators [data-bs-target] { 
             background-color: var(--seychelles-pink); 
             width: 10px;
@@ -180,6 +171,24 @@
             margin-top: 1rem;
         }
 
+        /* Input del club */
+        .input-club {
+            border: none;
+            border-bottom: 2px solid var(--deep-gray);
+            background: transparent;
+            padding: 10px 0;
+            font-size: 1.1rem;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            margin-bottom: 2rem;
+            border-radius: 0;
+        }
+        .input-club:focus {
+            outline: none;
+            border-bottom-color: var(--seychelles-pink);
+        }
+
         .legal-link {
             font-size: 0.7rem;
             text-transform: uppercase;
@@ -189,14 +198,12 @@
             transition: color 0.3s ease;
             font-weight: 600;
         }
-
-        .legal-link:hover {
-            color: var(--seychelles-pink);
-        }
+        .legal-link:hover { color: var(--seychelles-pink); }
     </style>
 </head>
 <body>
 
+    <!-- 1. NAVEGACIÓN -->
     <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
         <div class="container justify-content-between position-relative">
             <ul class="navbar-nav d-none d-lg-flex align-items-center">
@@ -216,6 +223,7 @@
         </div>
     </nav>
 
+    <!-- 2. HERO -->
     <section class="hero">
         <div class="container">
             <p style="letter-spacing: 0.7rem; text-transform: uppercase; font-size: 0.85rem; margin-bottom: 2rem;">The Art of Minimalist Living</p>
@@ -224,24 +232,85 @@
         </div>
     </section>
 
+    <!-- 3. SECCIÓN VINTED / ARMARIO CIRCULAR -->
     <section id="shop" class="py-section">
         <div class="container text-center">
             <h2 class="section-title">El Armario Circular</h2>
             <div class="vinted-card mx-auto mb-5" style="max-width: 850px;">
-                <!-- SE CORRIGIÓ ESTA LÍNEA DE ABAJO -->
                 <p class="mb-5" style="font-weight: 300; font-size: 1.2rem;">
-                    Descubre nuestra colección exclusiva de prendas seleccionadas con una historia única para contar. 
-                    Calidad premium, estilo atemporal y moda sostenible.
+                    Descubre nuestra selección exclusiva de prendas con una historia única que contar. 
+                    Calidad premium, curaduría atemporal y un compromiso real con la moda sostenible.
                 </p>
+                <div class="stars">★★★★★</div>
+                <p class="review-text mb-5">"Una experiencia de compra excelente, prendas impecables."</p>
                 <a href="https://www.vinted.es" target="_blank" class="btn-luxury">Visitar mi Vinted</a>
             </div>
         </div>
     </section>
 
-    <!-- JS de Bootstrap y Script para el efecto Mecanografiado (Typewriter) -->
+    <!-- 4. SECCIÓN COLECCIÓN -->
+    <section id="collection" class="py-section" style="background-color: #fff;">
+        <div class="container">
+            <h2 class="section-title">La Colección</h2>
+            <div class="row g-4 justify-content-center">
+                <!-- Producto 1 -->
+                <div class="col-md-4 text-center">
+                    <div class="img-premium-wrap">
+                        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=600&auto=format&fit=crop" class="img-premium" alt="Minimalist Style">
+                    </div>
+                    <p class="product-label">Essentials</p>
+                    <h4 style="font-family: 'Playfair Display', serif; font-weight:700;">Blazer Atemporal</h4>
+                </div>
+                <!-- Producto 2 -->
+                <div class="col-md-4 text-center">
+                    <div class="img-premium-wrap">
+                        <img src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?q=80&w=600&auto=format&fit=crop" class="img-premium" alt="Luxury Knitwear">
+                    </div>
+                    <p class="product-label">Luxury Knitwear</p>
+                    <h4 style="font-family: 'Playfair Display', serif; font-weight:700;">Jerseys Premium</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. SECCIÓN NOSOTROS -->
+    <section id="about" class="py-section" style="background-color: var(--light-pink);">
+        <div class="container text-center" style="max-width: 700px;">
+            <h2 class="section-title">Nuestra Filosofía</h2>
+            <p style="font-size: 1.1rem; font-weight: 300; line-height: 2;">
+                En <strong>Seychelles Shop</strong> creemos que el lujo real no radica en la acumulación, sino en la selección meticulosa de lo esencial. Redefinimos el estilo urbano combinando estética minimalista con el ciclo sostenible de la moda circular.
+            </p>
+        </div>
+    </section>
+
+    <!-- 6. SECCIÓN NEWSLETTER (CLUB) -->
+    <section id="newsletter" class="py-section text-center">
+        <div class="container">
+            <h2 class="section-title" style="margin-bottom: 2rem;">Únete al Club</h2>
+            <p class="mb-5" style="letter-spacing: 0.1rem; font-weight: 300;">Recibe alertas exclusivas antes de que las prendas se publiquen de manera abierta.</p>
+            <form action="#" method="POST" class="d-flex flex-column align-items-center">
+                <input type="email" class="input-club" placeholder="TU E-MAIL AQUÍ" required>
+                <button type="submit" class="btn-luxury">Suscribirme</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- 7. FOOTER (PIE DE PÁGINA) -->
+    <footer class="py-5 text-center" style="background-color: #ffffff; border-top: 1px solid var(--border-gray);">
+        <div class="container">
+            <p style="font-size: 0.8rem; letter-spacing: 0.1rem; color: #888;">&copy; 2026 SEYCHELLES SHOP. ALL RIGHTS RESERVED.</p>
+            <div class="mt-4">
+                <a href="#" class="legal-link mx-2">Privacidad</a>
+                <a href="#" class="legal-link mx-2">Términos</a>
+                <a href="#" class="legal-link mx-2">Contacto</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Efecto Typewriter para el Hero
+        // Efecto Mecanografiado para el título de la sección Hero
         const words = ["Shop", "Essentials", "Curated Style"];
         let i = 0;
         let timer;
